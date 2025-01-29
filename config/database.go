@@ -13,6 +13,7 @@ var (
 	err error
 )
 
+// connects to PostgreSQL, panics if an error is returned
 func ConnectDB() {
 	connectionString := "host=localhost user=root password=root dbname=gestao_ti port=5432 sslmode=disable timezone=America/Sao_Paulo"
 	DB, err = gorm.Open(postgres.Open(connectionString))
