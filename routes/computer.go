@@ -5,11 +5,8 @@ import (
 	"github.com/matdorneles/gestao_ti/handlers"
 )
 
-// run web server and handle http requests
-func HandleRequests() {
-	r := gin.Default()
-
-	// COMPUTER ROUTES
+// receives a call from router and registers the routes of Computer model
+func computerRoutes(r *gin.Engine) {
 	computer := r.Group("/computer")
 	{
 		computer.GET("/", handlers.GetAllComputers)
@@ -18,6 +15,4 @@ func HandleRequests() {
 		computer.PATCH("/", handlers.PatchComputer)
 		computer.DELETE("/:id", handlers.DeleteComputer)
 	}
-
-	r.Run() // default port :8080
 }
