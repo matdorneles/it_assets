@@ -1,0 +1,29 @@
+services:
+
+  postgres:
+    image: "postgres:14.2"
+    networks:
+      - dbnet
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: gestao_ti
+    volumes:
+      - ./db-data/postgres:/var/lib/postgresql/data
+
+  pgadmin-compose:
+    image: dpage/pgadmin4
+    networks:
+      - dbnet
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: 123456
+    ports:
+      - "54321:80"
+    depends_on:
+      - postgres
+
+networks:
+  dbnet:
