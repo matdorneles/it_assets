@@ -2,8 +2,6 @@ services:
 
   postgres:
     image: "postgres:14.2"
-    networks:
-      - dbnet
     ports:
       - "5432:5432"
     environment:
@@ -15,8 +13,6 @@ services:
 
   pgadmin-compose:
     image: dpage/pgadmin4
-    networks:
-      - dbnet
     environment:
       PGADMIN_DEFAULT_EMAIL: admin@admin.com
       PGADMIN_DEFAULT_PASSWORD: 123456
@@ -24,6 +20,3 @@ services:
       - "54321:80"
     depends_on:
       - postgres
-
-networks:
-  dbnet:
