@@ -1,4 +1,4 @@
-module github.com/matdorneles/gestao_ti
+module github.com/matdorneles/gestao_ti/api
 
 go 1.23.4
 

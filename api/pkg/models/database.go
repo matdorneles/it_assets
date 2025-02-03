@@ -1,9 +1,8 @@
-package config
+package models
 
 import (
 	"log"
 
-	"github.com/matdorneles/gestao_ti/models"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
@@ -21,5 +20,5 @@ func ConnectDB() {
 		log.Panic("Error connecting to database")
 	}
 	log.Println("Connected to PostgreSQL")
-	DB.AutoMigrate(&models.Computer{})
+	DB.AutoMigrate(&Computer{})
 }
