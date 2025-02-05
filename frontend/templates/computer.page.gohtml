@@ -1,0 +1,16 @@
+{{ template "base" . }}
+
+{{ define "content" }}
+
+    <main>
+        <h1>Computer Page</h1>
+        <a id="computerGet" href="javascript:void(0)">
+            <span class="">Buscar Todos</span>
+        </a>
+        <div id="output">
+            <span>Output shows here: </span>
+            <span>{{.received}}</span>
+        </div>
+    </main>
+
+{{ end }}
