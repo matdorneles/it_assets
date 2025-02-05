@@ -2,6 +2,9 @@ services:
 
   postgres:
     image: "postgres:14.2"
+    restart: always
+    networks:
+      - backend
     ports:
       - "5432:5432"
     environment:
@@ -20,3 +23,18 @@ services:
       - "54321:80"
     depends_on:
       - postgres
+
+  backend:
+    build:
+      context: ./api
+      dockerfile: backend.dockerfile
+    networks:
+      - backend
+    ports:
+      - "8080:80"
+    depends_on:
+      - postgres
+
+networks:
+  backend:
+    driver: bridge
