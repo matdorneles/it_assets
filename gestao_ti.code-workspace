@@ -5,7 +5,12 @@
 		},
 		{
 			"path": "api"
+		},
+		{
+			"path": "frontend"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "front-end"
+	}
 }
