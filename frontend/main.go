@@ -15,8 +15,18 @@ func main() {
 	// handle Image file requests
 	imgs := http.FileServer(http.Dir("./images"))
 	http.Handle("/images/", http.StripPrefix("/images", imgs))
+
+	// handle Scripts file requests
+	scripts := http.FileServer(http.Dir("./scripts"))
+	http.Handle("/scripts/", http.StripPrefix("/scripts", scripts))
+
+	// page renders
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		render(w, "home.page.gohtml")
+	})
+
+	http.HandleFunc("/computer", func(w http.ResponseWriter, r *http.Request) {
+		render(w, "computer.page.gohtml")
 	})
 
 	log.Println("Starting frontend service on port 80")

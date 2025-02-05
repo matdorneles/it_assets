@@ -17,6 +17,7 @@ func ConnectDB() {
 	connectionString := "host=localhost user=root password=root dbname=gestao_ti port=5432 sslmode=disable timezone=America/Sao_Paulo"
 	DB, err = gorm.Open(postgres.Open(connectionString))
 	if err != nil {
+		log.Println(err)
 		log.Panic("Error connecting to database")
 	}
 	log.Println("Connected to PostgreSQL")
